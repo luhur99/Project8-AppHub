@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { Quote } from 'lucide-react';
 
 const verses = [
   "Sesungguhnya sesudah kesulitan itu ada kemudahan (Al-Insyirah: 6)",
@@ -45,14 +46,48 @@ const getDailyVerse = () => {
 
 const DailyVerse: React.FC = () => {
   const [currentVerse, setCurrentVerse] = useState('');
+  const [verseText, setVerseText] = useState('');
+  const [verseRef, setVerseRef] = useState('');
 
   useEffect(() => {
-    setCurrentVerse(getDailyVerse());
+    const verse = getDailyVerse();
+    setCurrentVerse(verse);
+    
+    // Split verse and reference if possible
+    const lastParenIndex = verse.lastIndexOf('(');
+    if (lastParenIndex > -1) {
+      setVerseText(verse.substring(0, lastParenIndex).trim());
+      setVerseRef(verse.substring(lastParenIndex).replace('(', '').replace(')', ''));
+    } else {
+      setVerseText(verse);
+      setVerseRef('');
+    }
   }, []);
 
+  if (!currentVerse) return null;
+
   return (
-    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center text-white text-lg font-medium z-10 p-4 bg-black bg-opacity-50 rounded-lg max-w-xl mx-auto">
-      <p>{currentVerse}</p>
+    <div className="w-full max-w-3xl mx-auto mt-16 px-4">
+      <div className="relative group">
+        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl opacity-20 blur transition duration-500 group-hover:opacity-40"></div>
+        <div className="relative flex flex-col md:flex-row items-center md:items-start gap-6 p-8 bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl text-center md:text-left">
+          <div className="p-3 rounded-full bg-white/5 border border-white/10 shrink-0">
+            <Quote className="w-6 h-6 text-blue-400" />
+          </div>
+          <div className="space-y-3">
+            <p className="text-lg md:text-xl font-light text-gray-200 leading-relaxed font-sans italic">
+              "{verseText}"
+            </p>
+            {verseRef && (
+              <div className="flex justify-center md:justify-start">
+                <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-300 bg-blue-500/10 border border-blue-500/20 rounded-full tracking-wider uppercase">
+                  {verseRef}
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

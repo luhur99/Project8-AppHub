@@ -3,71 +3,89 @@
 import React from 'react';
 import ServiceCard from "@/components/ServiceCard";
 import DailyVerse from "@/components/DailyVerse";
-import { MadeWithDyad } from "@/components/made-with-elmony"; // Corrected import syntax
+import { MadeWithDyad } from "@/components/made-with-elmony";
 import { Rocket, ShieldCheck, Settings, Lightbulb } from 'lucide-react';
-// Removed import for GalaxyBackground
 
 const Index = () => {
   const services = [
     {
       title: "Operation Manager",
-      description: "Streamline your operations with efficient management tools.",
+      description: "Streamline operations with next-gen management tools.",
       link: "https://luhur99.vercel.app/",
       icon: Settings,
-      colorClass: "bg-gradient-to-br from-blue-600 to-purple-600",
+      gradient: "bg-gradient-to-br from-blue-600 to-indigo-600",
     },
     {
       title: "Sales Funnel",
-      description: "Optimize your sales process and convert more leads.",
+      description: "Optimize sales processes and convert more leads with AI.",
       link: "https://sg-4f64cfd4-ec7d-47fc-aab7-ab2d727a.vercel.app/",
       icon: Rocket,
-      colorClass: "bg-gradient-to-br from-green-500 to-teal-500",
+      gradient: "bg-gradient-to-br from-emerald-500 to-teal-500",
     },
     {
       title: "Simcard Care",
-      description: "Manage and care for your SIM cards with ease.",
+      description: "Manage and monitor your SIM card lifecycle efficiently.",
       link: "https://sg-23f7a9c0-9625-4526-98d9-451cd87c.vercel.app/",
       icon: ShieldCheck,
-      colorClass: "bg-gradient-to-br from-yellow-500 to-orange-500",
+      gradient: "bg-gradient-to-br from-amber-500 to-orange-500",
     },
     {
-      title: "Smart Complain System",
-      description: "An intelligent system to handle customer complaints efficiently.",
+      title: "Smart Complain",
+      description: "Intelligent neural system to handle customer inquiries.",
       status: "On Progress",
       icon: Lightbulb,
-      colorClass: "bg-gradient-to-br from-red-500 to-pink-500",
+      gradient: "bg-gradient-to-br from-rose-500 to-pink-600",
     },
   ];
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center p-4 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"> {/* Added gradient background */}
-      {/* Removed GalaxyBackground component */}
-
-      <div className="relative z-10 text-center mb-12 mt-16">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4">
-          Budi Karya Teknologi
-        </h1>
-        <p className="text-2xl md:text-3xl text-gray-200 font-light">
-          Brand Technology
-        </p>
+    <div className="relative min-h-screen flex flex-col items-center p-6 overflow-hidden bg-[#030712] selection:bg-blue-500/30">
+      
+      {/* Background Grid & Glows */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/10 blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-900/10 blur-[120px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)]" />
       </div>
 
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl w-full px-4 mb-16">
-        {services.map((service, index) => (
-          <ServiceCard
-            key={index}
-            title={service.title}
-            description={service.description}
-            link={service.link}
-            status={service.status}
-            icon={service.icon}
-            colorClass={service.colorClass}
-          />
-        ))}
-      </div>
+      <div className="relative z-10 flex flex-col items-center w-full max-w-7xl pt-20 pb-12">
+        
+        {/* Header Section */}
+        <div className="text-center mb-24 space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-6 animate-fade-in-up">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            </span>
+            <span className="text-xs font-semibold text-blue-200 tracking-widest uppercase">
+              System v2.0 Online
+            </span>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/40 tracking-tight drop-shadow-2xl">
+            BUDI KARYA <br /> TEKNOLOGI
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-400 font-light tracking-wide max-w-2xl mx-auto">
+            Architecting the future of digital infrastructure.
+          </p>
+        </div>
 
-      <DailyVerse />
-      <MadeWithDyad />
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full px-4">
+          {services.map((service, index) => (
+            <ServiceCard
+              key={index}
+              {...service}
+            />
+          ))}
+        </div>
+
+        <DailyVerse />
+        
+        <div className="mt-20 opacity-60 hover:opacity-100 transition-opacity duration-300">
+            <MadeWithDyad />
+        </div>
+      </div>
     </div>
   );
 };
