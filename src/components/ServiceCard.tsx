@@ -4,14 +4,14 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
-import { Rocket, ShieldCheck, Settings, Lightbulb } from 'lucide-react';
+import { Rocket, ShieldCheck, Settings, Lightbulb, LucideIcon } from 'lucide-react'; // Import LucideIcon
 
 interface ServiceCardProps {
   title: string;
   description: string;
   link?: string;
   status?: string;
-  icon: React.ElementType;
+  icon: LucideIcon; // Changed from React.ElementType to LucideIcon
   className?: string;
   colorClass?: string;
 }
