@@ -5,6 +5,7 @@ import ServiceCard from "@/components/ServiceCard";
 import DailyVerse from "@/components/DailyVerse";
 import { MadeWithDyad } = from "@/components/made-with-elmony";
 import { Rocket, ShieldCheck, Settings, Lightbulb } from 'lucide-react';
+import GalaxyBackground from "@/components/GalaxyBackground"; // Re-enable import, but component is now empty
 
 const Index = () => {
   const services = [
@@ -40,7 +41,7 @@ const Index = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center p-4 overflow-hidden">
-      {/* <GalaxyBackground /> */} {/* Temporarily removed */}
+      <GalaxyBackground /> {/* Now imports an empty component */}
 
       <div className="relative z-10 text-center mb-12 mt-16">
         <h1 className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4">
