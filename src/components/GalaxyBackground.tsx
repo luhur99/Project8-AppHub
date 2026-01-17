@@ -20,7 +20,7 @@ const RotatingStars = () => {
 const GalaxyBackground = () => {
   return (
     <div className="absolute inset-0 z-0">
-      <Canvas camera={{ position: [0, 0, 1] }}>
+      <Canvas camera={{ position: [0, 0, 1] }} events={false}>
         <ambientLight intensity={0.5} />
         <RotatingStars />
       </Canvas>
