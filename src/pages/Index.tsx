@@ -32,7 +32,7 @@ const Index = () => {
     {
       title: "Smart Complain",
       description: "Intelligent neural system to handle customer inquiries.",
-      status: "On Progress",
+      link: "https://customercarebkt.vercel.app/", // Updated link
       icon: Lightbulb,
       gradient: "bg-gradient-to-br from-rose-500 to-pink-600",
     },
