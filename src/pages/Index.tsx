@@ -32,7 +32,7 @@ const Index = () => {
     {
       title: "Smart Complain",
       description: "Intelligent neural system to handle customer inquiries.",
-      link: "https://customercarebkt.vercel.app/", // Updated link
+      link: "https://customercarebkt.vercel.app/",
       icon: Lightbulb,
       gradient: "bg-gradient-to-br from-rose-500 to-pink-600",
     },
@@ -48,20 +48,15 @@ const Index = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)]" />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center w-full max-w-7xl pt-20 pb-12">
+      <div className="relative z-10 flex flex-col items-center w-full max-w-7xl pt-12 pb-12">
         
+        {/* Daily Verse at the Top */}
+        <div className="mb-16 w-full">
+          <DailyVerse />
+        </div>
+
         {/* Header Section */}
-        <div className="text-center mb-24 space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-6 animate-fade-in-up">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-            </span>
-            <span className="text-xs font-semibold text-blue-200 tracking-widest uppercase">
-              System v2.0 Online
-            </span>
-          </div>
-          
+        <div className="text-center mb-20 space-y-6">
           <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/40 tracking-tight drop-shadow-2xl">
             BUDI KARYA <br /> TEKNOLOGI
           </h1>
@@ -71,7 +66,7 @@ const Index = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full px-4 mb-24">
           {services.map((service, index) => (
             <ServiceCard
               key={index}
@@ -80,10 +75,21 @@ const Index = () => {
           ))}
         </div>
 
-        <DailyVerse />
-        
-        <div className="mt-20 opacity-60 hover:opacity-100 transition-opacity duration-300">
-            <MadeWithDyad />
+        {/* System Status at Bottom */}
+        <div className="mt-auto flex flex-col items-center gap-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm animate-fade-in-up">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            </span>
+            <span className="text-xs font-semibold text-blue-200 tracking-widest uppercase">
+              System v2.0 Online
+            </span>
+          </div>
+
+          <div className="opacity-60 hover:opacity-100 transition-opacity duration-300">
+              <MadeWithDyad />
+          </div>
         </div>
       </div>
     </div>

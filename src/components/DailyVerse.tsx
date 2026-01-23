@@ -67,7 +67,7 @@ const DailyVerse: React.FC = () => {
   if (!currentVerse) return null;
 
   return (
-    <div className="w-full max-w-3xl mx-auto mt-16 px-4">
+    <div className="w-full max-w-3xl mx-auto px-4">
       <div className="relative group">
         <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl opacity-20 blur transition duration-500 group-hover:opacity-40"></div>
         <div className="relative flex flex-col md:flex-row items-center md:items-start gap-6 p-8 bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl text-center md:text-left">
