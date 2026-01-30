@@ -11,7 +11,7 @@ const Index = () => {
     {
       title: "Operation Manager",
       description: "Streamline operations with next-gen management tools.",
-      link: "https://luhur99.vercel.app/",
+      link: "https://optimabkt.vercel.app/", // Updated link
       icon: Settings,
       gradient: "bg-gradient-to-br from-blue-600 to-indigo-600",
     },
