@@ -3,7 +3,6 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { Link } from "react-router-dom";
 import { LucideIcon } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -25,7 +24,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   className,
   gradient
 }) => {
-  const isDisabled = status === "On Progress";
+  const isDisabled = status === "On Progress" || status === "Under Construction";
+  const statusLabel = status === "Under Construction" ? "Under Construction" : "In Development";
 
   const Content = () => (
     <div className="relative z-10 h-full flex flex-col">
@@ -47,8 +47,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
             </span>
-            <span className="text-xs font-mono text-amber-400 uppercase tracking-widest">
-              In Development
+            <span className="text-xs font-mono text-amber-400 uppercase tracking-widest animate-pulse">
+              {statusLabel}
             </span>
           </div>
         )}
@@ -59,7 +59,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   return (
     <Card
       className={cn(
-        "group relative overflow-hidden bg-white/5 border-white/10 backdrop-blur-md transition-all duration-500",
+        "group relative h-full overflow-hidden bg-white/5 border-white/10 backdrop-blur-md transition-all duration-500",
         !isDisabled && "hover:border-white/20 hover:shadow-[0_0_30px_-10px_rgba(255,255,255,0.1)] hover:-translate-y-1",
         isDisabled && "opacity-70 cursor-not-allowed grayscale-[0.5]",
         className
@@ -78,9 +78,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <Content />
         </div>
       ) : (
-        <Link to={link || "#"} target="_blank" rel="noopener noreferrer" className="block h-full p-1">
+        <a href={link || "#"} target="_blank" rel="noopener noreferrer" className="block h-full p-1">
           <Content />
-        </Link>
+        </a>
       )}
     </Card>
   );

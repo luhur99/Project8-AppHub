@@ -50,18 +50,39 @@ const DailyVerse: React.FC = () => {
   const [verseRef, setVerseRef] = useState('');
 
   useEffect(() => {
-    const verse = getDailyVerse();
-    setCurrentVerse(verse);
-    
-    // Split verse and reference if possible
-    const lastParenIndex = verse.lastIndexOf('(');
-    if (lastParenIndex > -1) {
-      setVerseText(verse.substring(0, lastParenIndex).trim());
-      setVerseRef(verse.substring(lastParenIndex).replace('(', '').replace(')', ''));
-    } else {
-      setVerseText(verse);
-      setVerseRef('');
-    }
+    const applyVerse = () => {
+      const verse = getDailyVerse();
+      setCurrentVerse(verse);
+
+      // Split verse and reference if possible
+      const lastParenIndex = verse.lastIndexOf('(');
+      if (lastParenIndex > -1) {
+        setVerseText(verse.substring(0, lastParenIndex).trim());
+        setVerseRef(verse.substring(lastParenIndex).replace('(', '').replace(')', ''));
+      } else {
+        setVerseText(verse);
+        setVerseRef('');
+      }
+    };
+
+    applyVerse();
+
+    const now = new Date();
+    const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    const msUntilMidnight = nextMidnight.getTime() - now.getTime();
+
+    let intervalId: number | undefined;
+    const timeoutId = window.setTimeout(() => {
+      applyVerse();
+      intervalId = window.setInterval(applyVerse, 24 * 60 * 60 * 1000);
+    }, msUntilMidnight);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+      if (intervalId !== undefined) {
+        window.clearInterval(intervalId);
+      }
+    };
   }, []);
 
   if (!currentVerse) return null;

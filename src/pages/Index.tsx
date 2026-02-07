@@ -4,7 +4,7 @@ import React from 'react';
 import ServiceCard from "@/components/ServiceCard";
 import DailyVerse from "@/components/DailyVerse";
 import { MadeWithDyad } from "@/components/made-with-elmony";
-import { Rocket, ShieldCheck, Settings, Lightbulb } from 'lucide-react';
+import { Rocket, ShieldCheck, Settings, Lightbulb, HardDrive, Mail } from 'lucide-react';
 
 const Index = () => {
   const services = [
@@ -36,6 +36,20 @@ const Index = () => {
       icon: Lightbulb,
       gradient: "bg-gradient-to-br from-rose-500 to-pink-600",
     },
+    {
+      title: "DriveBKT",
+      description: "Budi Karya Teknologi Smart Cloud Drive.",
+      link: "http://163.245.208.163:7580/login",
+      icon: HardDrive,
+      gradient: "bg-gradient-to-br from-cyan-500 to-sky-600",
+    },
+    {
+      title: "Mail BKT",
+      description: "Smart Mail BKT Management.",
+      status: "Under Construction",
+      icon: Mail,
+      gradient: "bg-gradient-to-br from-violet-500 to-fuchsia-600",
+    },
   ];
 
   return (
@@ -66,10 +80,10 @@ const Index = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full px-4 mb-24">
-          {services.map((service, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-full px-4 mb-24 [grid-auto-rows:1fr]">
+          {services.map((service) => (
             <ServiceCard
-              key={index}
+              key={service.title}
               {...service}
             />
           ))}
