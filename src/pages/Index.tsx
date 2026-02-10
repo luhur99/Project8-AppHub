@@ -18,7 +18,7 @@ const Index = () => {
     {
       title: "Sales Funnel",
       description: "Optimize sales processes and convert more leads with AI.",
-      link: "https://sg-4f64cfd4-ec7d-47fc-aab7-ab2d727a.vercel.app/",
+      link: "https://bkt-sales-funnel.vercel.app/",
       icon: Rocket,
       gradient: "bg-gradient-to-br from-emerald-500 to-teal-500",
     },
