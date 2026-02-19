@@ -25,7 +25,7 @@ const Index = () => {
     {
       title: "Simcard Care",
       description: "Manage and monitor your SIM card lifecycle efficiently.",
-      link: "https://sg-23f7a9c0-9625-4526-98d9-451cd87c.vercel.app/",
+      link: "https://simcardcare.vercel.app/",
       icon: ShieldCheck,
       gradient: "bg-gradient-to-br from-amber-500 to-orange-500",
     },
