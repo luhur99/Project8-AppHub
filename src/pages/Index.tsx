@@ -39,7 +39,7 @@ const Index = () => {
     {
       title: "DriveBKT",
       description: "Budi Karya Teknologi Smart Cloud Drive.",
-      link: "http://163.245.208.163:7580/login",
+      link: "https://cloud.budikaryateknologi.com/",
       icon: HardDrive,
       gradient: "bg-gradient-to-br from-cyan-500 to-sky-600",
     },
@@ -75,7 +75,7 @@ const Index = () => {
             BUDI KARYA <br /> TEKNOLOGI
           </h1>
           <p className="text-xl md:text-2xl text-gray-400 font-light tracking-wide max-w-2xl mx-auto">
-            Architecting the future of digital infrastructure.
+            Architecting the future of digital Logistics.
           </p>
         </div>
 
