@@ -46,7 +46,7 @@ const Index = () => {
     {
       title: "Mail BKT",
       description: "Smart Mail BKT Management.",
-      link: "https://webmail.kerjamail.co",
+      link: "https://bandung01.emailkerja.id/",
       icon: Mail,
       gradient: "bg-gradient-to-br from-violet-500 to-fuchsia-600",
     },
